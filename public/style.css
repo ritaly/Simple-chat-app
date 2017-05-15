@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 18px Helvetica, Arial;
+    background-color: #f2f5fa;
+    background-image: url(./img/overlay.png), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url(./bg.jpg);
+background-image: url(./overlay.png), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url(./bg.jpg);
+background-image: url(./overlay.png), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url(./bg.jpg);
+background-image: url(./overlay.png), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url(./bg.jpg);
+background-repeat: repeat, no-repeat, no-repeat;
+background-size: 100px 100px, cover, cover;
+background-position: top left, center center, bottom center;
+background-attachment: fixed, fixed, fixed;
+
+}
+#wrapper {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -moz-perspective: 1000px;
+    -webkit-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+    min-height: 100vh;
+    padding: 5em;
+    width: 100%;
+}
+
+main {
+
+}
+form {
+  position: fixed;
+    width: inherit;
+    bottom: 0;
+}
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#messages li {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+#messages li:last-child {
+  margin-bottom: 43px;
+}
+
+#messages li:nth-child(odd) {
+  background: #E5FAFA;
+}
+
+#messages li:nth-child(even) {
+  background: #CCF5F5;
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Simple chat</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="wrapper">
+    <main>
+      <div class="container">
+        <ul id="messages"></ul>
+        <form action="">
+          <div class="form-group">
+            <!-- Message input !-->
+            <label class="control-label " for="message_id">Message</label>
+            <textarea id="msg" autocomplete="off" class="form-control" name="message" rows="5"></textarea>
+          </div>
+
+          <div class="form-group">
+            <button id="sendMessage" type="submit" class="btn btn-info">Send</button>
+          </div>
+
+        </form>
+      </div>
+
+    </main>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+  <script>
+    var socket = io();
+    socket.on('output', function(data) {
+      if (data.length) {
+        for (var x = 0; x < data.length; x++) {
+          $('#messages').append($('<li>').text(data[x].username + ": " + data[x].message));
+        }
+      }
+    });
+
+    var username = prompt("Nazwa:");
+
+    if (username) {
+
+      $('form').submit(function() {
+        socket.emit('message', {
+          message: $('#msg').val(),
+          username: username
+        });
+
+        $('#msg').val('');
+        return false;
+      });
+
+      socket.on('message', function(msg) {
+        $('#messages').append($('<li>').text(msg.username + ": " + msg.message));
+        $("html, body").scrollTop($(document).height());
+      });
+      socket.on('er', function(er) {
+        alert(er);
+      });
+    }
+  </script>
+</body>
+
+</html>
