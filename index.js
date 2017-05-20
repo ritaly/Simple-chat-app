@@ -4,7 +4,7 @@ var express = require('express'),
   io = require('socket.io').listen(server);
 mongo = require('mongodb').MongoClient;
 
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
 
@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 });
 
 
-mongo.connect('mongodb://127.0.0.1/test', function(err, db) {
+mongo.connect('mongodb://Rita:ritalubiczekolade@ds147821.mlab.com:47821/simple_chat', function(err, db){
   if (err) throw err;
 
   io.sockets.on('connection', function(socket) {
