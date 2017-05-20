@@ -1,4 +1,4 @@
-$b: #19b9e7;
+$b: #c75e7d;
 $g: #555;
 
 body {
@@ -122,7 +122,7 @@ ul.navbar-nav {
     & a:focus,
     &:hover {
       border: 0;
-      color: #19b9e7;
+      color: $b;
     }
   }
 }
@@ -224,6 +224,7 @@ ul.navbar-nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  color: #555;
 
   li {
     padding: 10px 12px;
